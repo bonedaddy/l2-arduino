@@ -12,5 +12,4 @@ void loop()
     val=analogRead(potpin);// read the analog value from the sensor and assign it to val
     Serial.println(val);// display value of val
     analogWrite(ledpin,val/4);// turn on LED and set up brightness（maximum output of PWM is 255）
-    delay(10);// wait for 0.01 second
 }
