@@ -15,5 +15,4 @@ void loop()
         analogWrite(ledPin,a); // turn on LED, regulate light brightness, ranging from 0-255, 255 is the brightest
         delay(10); // wait for 0.01S
     }
-    delay(1000);// wait for 1S
 }
