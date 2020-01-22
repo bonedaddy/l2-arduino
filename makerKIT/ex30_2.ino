@@ -15,11 +15,15 @@ void loop()
     for (int i=0; i<16; i++) {
         lcd.setCursor(i, 0);
         lcd.write(row1[i]);
-        delay(10);
+        lcd.blink();
+        delay(100);
+        lcd.noBlink();
     }
     for (int i=0; i<5; i++) {
         lcd.setCursor(i, 1);
         lcd.write(row2[i]);
-        delay(10);
+        lcd.blink();
+        delay(100);
+        lcd.noBlink();
     }
 }
