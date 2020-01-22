@@ -26,8 +26,8 @@ byte smile[8] =
               };
 void setup()
 {
-    lcd.createChar(0, smile);
     lcd.init(); // initialize the lcd
+    lcd.createChar(0, smile);
     lcd.backlight();
     lcd.setCursor(0, 0);
     lcd.print("Shroomery is");
