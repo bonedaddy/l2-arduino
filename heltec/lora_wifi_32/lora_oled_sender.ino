@@ -167,7 +167,7 @@ void loop()
  *   - RF_PACONFIG_PASELECT_RFO     -- LoRa single output via RFO_HF / RFO_LF, maximum output 14dBm
 */
   LoRa.setTxPower(14,RF_PACONFIG_PASELECT_PABOOST);
-  LoRa.print("hello ");
+  LoRa.print("hello this is some extremely extra long test data");
   LoRa.print(counter);
   LoRa.endPacket();
 

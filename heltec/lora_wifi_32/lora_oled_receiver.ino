@@ -98,6 +98,8 @@ const unsigned char logo_bits[] = {
 String rssi = "RSSI --";
 String packSize = "--";
 String packet ;
+int totalDataReceived;
+int messagesReceived;
 
 void logo(){
   Heltec.display->clear();
@@ -109,8 +111,9 @@ void LoRaData(){
   Heltec.display->clear();
   Heltec.display->setTextAlignment(TEXT_ALIGN_LEFT);
   Heltec.display->setFont(ArialMT_Plain_10);
-  Heltec.display->drawString(0 , 15 , "Received "+ packSize + " bytes");
-  Heltec.display->drawStringMaxWidth(0 , 26 , 128, packet);
+  Heltec.display->drawString(0 , 15 , "Received "+ String(totalDataReceived) + " bytes");
+  Heltec.display->drawString(0, 26 , "Messages Received " + String(messagesReceived));
+  // Heltec.display->drawStringMaxWidth(0 , 26 , 9, packet);
   Heltec.display->drawString(0, 0, rssi);  
   Heltec.display->display();
 }
@@ -144,6 +147,10 @@ void setup() {
 
 void loop() {
   int packetSize = LoRa.parsePacket();
-  if (packetSize) { cbk(packetSize);  }
+  if (packetSize) { 
+    totalDataReceived = totalDataReceived + packetSize;
+    messagesReceived = messagesReceived + 1;  
+    cbk(packetSize);  
+  }
   delay(10);
 }
