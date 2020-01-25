@@ -120,6 +120,7 @@ void LoRaData(){
 
 void cbk(int packetSize) {
   packSize = String(packetSize,DEC);
+  rssi = "RSSI " + String(LoRa.packetRssi(), DEC) ;
   LoRaData();
 }
 

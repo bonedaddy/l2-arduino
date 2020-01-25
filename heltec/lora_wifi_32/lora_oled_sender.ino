@@ -167,13 +167,9 @@ void loop()
  *   - RF_PACONFIG_PASELECT_RFO     -- LoRa single output via RFO_HF / RFO_LF, maximum output 14dBm
 */
   LoRa.setTxPower(14,RF_PACONFIG_PASELECT_PABOOST);
-  LoRa.print("hello this is some extremely extra long test data");
+  LoRa.print("hello this is some extremely extra long test data lets add some extra data my friend okay how about we add some more test data to see if we can push this thing to its limit because i really want to transmit data on ipfs over LoRa lets try to fill up the program storage space with one really long string that we send through lora so that we can measure just how much data we can pipe through htis as if we were writing a really long email. but will this work? i have no idea hopefully it does because i really want to make LoRa IoT devies that let me made some really cool shit so lets pretend that we are writing an extra long emai lto see if we can pipe large amounts of data through this yo sly dog, this is really cool i love this stuff  okay i want to send some morte i need to go get ready");
   LoRa.print(counter);
   LoRa.endPacket();
 
   counter++;
-  digitalWrite(LED, HIGH);   // turn the LED on (HIGH is the voltage level)
-  delay(1000);                       // wait for a second
-  digitalWrite(LED, LOW);    // turn the LED off by making the voltage LOW
-  delay(1000);                       // wait for a second
 }
