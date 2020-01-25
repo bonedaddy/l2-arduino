@@ -139,6 +139,7 @@ void setup() {
   Heltec.display->drawString(0, 10, "Wait for incoming data...");
   Heltec.display->display();
   delay(1000);
+  LoRa.setSyncWord(0x99f);
   //LoRa.onReceive(cbk);
   LoRa.receive();
 }
