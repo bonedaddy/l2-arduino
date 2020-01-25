@@ -140,6 +140,7 @@ void setup() {
   Heltec.display->display();
   delay(1000);
   LoRa.setSyncWord(0x99f);
+  LoRa.setTxPower(20,RF_PACONFIG_PASELECT_PABOOST);
   //LoRa.onReceive(cbk);
   LoRa.receive();
 }

@@ -145,6 +145,14 @@ void setup()
   Heltec.display->display();
   delay(1000);
   LoRa.setSyncWord(0x99f);
+/*
+ * LoRa.setTxPower(txPower,RFOUT_pin);
+ * txPower -- 0 ~ 20
+ * RFOUT_pin could be RF_PACONFIG_PASELECT_PABOOST or RF_PACONFIG_PASELECT_RFO
+ *   - RF_PACONFIG_PASELECT_PABOOST -- LoRa single output via PABOOST, maximum output 20dBm
+ *   - RF_PACONFIG_PASELECT_RFO     -- LoRa single output via RFO_HF / RFO_LF, maximum output 14dBm
+*/
+  LoRa.setTxPower(20,RF_PACONFIG_PASELECT_PABOOST);
 }
 
 void loop()
@@ -160,14 +168,7 @@ void loop()
   // send packet
   LoRa.beginPacket();
   
-/*
- * LoRa.setTxPower(txPower,RFOUT_pin);
- * txPower -- 0 ~ 20
- * RFOUT_pin could be RF_PACONFIG_PASELECT_PABOOST or RF_PACONFIG_PASELECT_RFO
- *   - RF_PACONFIG_PASELECT_PABOOST -- LoRa single output via PABOOST, maximum output 20dBm
- *   - RF_PACONFIG_PASELECT_RFO     -- LoRa single output via RFO_HF / RFO_LF, maximum output 14dBm
-*/
-  LoRa.setTxPower(20,RF_PACONFIG_PASELECT_PABOOST);
+
   LoRa.print("hello this is some extremely extra long test data lets add some extra data my friend okay how about we add some more test data to see if we can push this thing to its limit because i really want to transmit data on ipfs over LoRa lets try to fill up the program storage space with one really long string that we send through lora so that we can measure just how much data we can pipe through htis as if we were writing a really long email. but will this work? i have no idea hopefully it does because i really want to make LoRa IoT devies that let me made some really cool shit so lets pretend that we are writing an extra long emai lto see if we can pipe large amounts of data through this yo sly dog, this is really cool i love this stuff  okay i want to send some morte i need to go get ready");
   LoRa.print(counter);
   LoRa.endPacket();
